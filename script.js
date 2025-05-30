@@ -14,11 +14,11 @@ var loaderDiv = document.querySelector("#loader");
 var errorDiv = document.querySelector("#error");
 
 async function getWeatherData(city) {
-    loaderDiv.style.opacity = "1";
+    loaderDiv.style.display = "flex";
     const weatherApiData = await fetch(BASE_URL + city + `&appid=${API_KEY}`);
     const weatherData = await weatherApiData.json();
     // console.log(weatherApiData.status);
-    loaderDiv.style.opacity = "0";
+    loaderDiv.style.display = "none";
     if(weatherApiData.status == 404){
         errorDiv.style.display = "block";
     containerDiv.style.display = "none";
