@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather </title>
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="card">
+    <h1> What's The Weather ?! </h1>
+        <div class="search">
+            <input type="text" spellcheck="false" placeholder="enter location name">
+            <img src="images/search.png" alt="search button" type=button>
+        </div>
+            <div id="error"> <p> Invalid City name </p></div>
+            <div id="loader"></div>
+        <div id="container">
+        <img src="images/clear.png" alt="weather logo">
+        <h4 id="temp"> 22°c </h4>
+        <h4 id="loc"> Mumbai </h4>
+        <div id="weather-detail">
+            <div id="humidity">
+                <i class="fa-solid fa-water"></i>
+                <div class="detail">
+                    <h4 id="humidityVal">
+                        53%
+                    </h4>
+                    <p>
+                        humidity
+                    </p>
+                </div>
+            </div>
+                <div id="wind">
+                    <i class="fa-solid fa-wind"></i>
+                    <div class="detail">
+                        <h4 id="windSpeedVal">
+                            5.66 km/h
+                        </h4>
+                        <p>
+                            wind speed
+                        </p>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
