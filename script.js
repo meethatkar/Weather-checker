@@ -12,24 +12,24 @@ var errorDiv = document.querySelector("#error");
 
 async function getWeatherData(city) {
     loaderDiv.style.display = "flex";
+    containerDiv.style.display = "none";
     // const weatherApiData = await fetch(BASE_URL + city + `&appid=${API_KEY}`);
-    const weatherApiData_2 = await fetch('/.netlify/functions/weather_api',{
-        method:'POST',
-        body:JSON.stringify({
+    const weatherApiData_2 = await fetch('/.netlify/functions/weather_api', {
+        method: 'POST',
+        body: JSON.stringify({
             location: city,
         })
-    }).then(res=>res.json());
+    }).then(res => res.json());
     const weatherData = weatherApiData_2.data;
     // console.log(weatherApiData.status);
     loaderDiv.style.display = "none";
     if (weatherApiData_2.status == 404) {
-        // console.log("error no name");
-        
         errorDiv.style.display = "block";
         containerDiv.style.display = "none";
     }
     else {
-        console.log("api DATA: ",weatherData);
+        containerDiv.style.display = "none";
+        console.log("api DATA: ", weatherData);
         locDiv.innerText = weatherData.name;
         tempDiv.innerText = `${weatherData.main.temp}°c`;       //interpolation
         humidityValDiv.innerText = weatherData.main.humidity + "%";       //concatenation
@@ -58,9 +58,8 @@ async function getWeatherData(city) {
             weatherImg.src = "images/drizzle.png";
         }
         // cardDiv.style.height = "80%";
-        containerDiv.style.display = "flex";
-
         errorDiv.style.display = "none";
+        containerDiv.style.display = "flex";
     }
     // console.log(weatherData);
     // console.log(weatherData.main.temp, " temp");
@@ -71,8 +70,7 @@ async function getWeatherData(city) {
 
 searchBtn.addEventListener("click", function (elem) {
     if (/[0-9]/.test(inputDiv)) {
-        console.log("if else: ",inputDiv);
-        
+        console.log("if else: ", inputDiv);
         errorDiv.style.display = "flex";
     }
     else {
